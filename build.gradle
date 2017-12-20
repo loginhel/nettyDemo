@@ -1,0 +1,23 @@
+group 'com.ctg.it'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    maven { url 'http://132.122.232.248:8081/nexus/content/groups/public' }
+    maven { url 'http://10.142.90.52:8081/nexus/content/groups/public' }
+    maven { url 'https://oss.sonatype.org/service/local/staging/deploy/maven2/'}
+    maven { url 'http://10.142.90.52:8002/content/repositories/snapshots'}
+    maven {url 'http://132.122.232.248:8081/nexus/content/repositories/releases'}
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/com.google.guava/guava
+    compile group: 'com.google.guava', name: 'guava', version: '21.0'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
