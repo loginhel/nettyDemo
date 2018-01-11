@@ -21,7 +21,7 @@ dependencies {
     // https://mvnrepository.com/artifact/com.google.guava/guava
     compile group: 'com.google.guava', name: 'guava', version: '21.0'
     // https://mvnrepository.com/artifact/io.netty/netty-all
-    compile group: 'io.netty', name: 'netty-all', version: '4.1.19.Final'
+    compile group: 'io.netty', name: 'netty-all', version: '5.0.0.Alpha2'
     // https://mvnrepository.com/artifact/org.msgpack/msgpack-core
     compile group: 'org.msgpack', name: 'msgpack', version: '0.6.12'
     // https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java
@@ -29,7 +29,9 @@ dependencies {
     // https://mvnrepository.com/artifact/org.jboss.marshalling/jboss-marshalling
     compile group: 'org.jboss.marshalling', name: 'jboss-marshalling', version: '2.0.2.Final'
     // https://mvnrepository.com/artifact/org.jboss.marshalling/jboss-marshalling-serial
-    testCompile group: 'org.jboss.marshalling', name: 'jboss-marshalling-serial', version: '2.0.0.Final'
+    compile group: 'org.jboss.marshalling', name: 'jboss-marshalling-serial', version: '2.0.2.Final'
+    // https://mvnrepository.com/artifact/commons-logging/commons-logging
+    compile group: 'commons-logging', name: 'commons-logging', version: '1.2'
 
     compile 'com.github.anylogic:alogic-common:1.6.10-SNAPSHOT'
 

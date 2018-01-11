@@ -22,8 +22,8 @@ import io.netty.util.CharsetUtil;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import static io.netty.handler.codec.http.HttpUtil.isKeepAlive;
-import static io.netty.handler.codec.http.HttpUtil.setContentLength;
+import static io.netty.handler.codec.http.HttpHeaderUtil.isKeepAlive;
+import static io.netty.handler.codec.http.HttpHeaderUtil.setContentLength;
 
 
 /**
@@ -33,18 +33,6 @@ public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> 
 
     private static final Logger LOGGER = Logger.getLogger(WebSocketServerHandler.class.getName());
     private WebSocketServerHandshaker handshaker;
-
-    @Override
-    protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
-        //传统的http接入
-        if(msg instanceof FullHttpResponse){
-            handleHttpRequest(ctx,(FullHttpRequest) msg);
-        }
-        //Websocket接入
-        else if(msg instanceof WebSocketFrame){
-            handleWebSocketFrame(ctx,(WebSocketFrame)msg);
-        }
-    }
 
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
@@ -118,4 +106,15 @@ public class WebSocketServerHandler extends SimpleChannelInboundHandler<Object> 
     }
 
 
+    @Override
+    protected void messageReceived(ChannelHandlerContext ctx, Object msg) throws Exception {
+        //传统的http接入
+        if(msg instanceof FullHttpResponse){
+            handleHttpRequest(ctx,(FullHttpRequest) msg);
+        }
+        //Websocket接入
+        else if(msg instanceof WebSocketFrame){
+            handleWebSocketFrame(ctx,(WebSocketFrame)msg);
+        }
+    }
 }
